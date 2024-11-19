@@ -1,15 +1,12 @@
 import React from "react";
-import { Embarcacion } from "../types"; 
+import { Embarcacion } from "../types";
 
-// Definimos las propiedades que recibirá este componente
 interface EmbarcacionTableProps {
-  // Lista de embarcaciones
-  embarcaciones: Embarcacion[]; // Lista de embarcaciones a mostrar
-  onEdit: (embarcacion: Embarcacion) => void; // Función cuando se edite
-  onDelete: (id: number) => void; // Función para eliminar una embarcación
+  embarcaciones: Embarcacion[];
+  onEdit: (embarcacion: Embarcacion) => void;
+  onDelete: (id: number) => void;
 }
 
-// Definimos el componente EmbarcacionTable
 const EmbarcacionTable: React.FC<EmbarcacionTableProps> = ({
   embarcaciones,
   onEdit,
@@ -28,20 +25,23 @@ const EmbarcacionTable: React.FC<EmbarcacionTableProps> = ({
           <th>Nombre</th>
           <th>Capacidad</th>
           <th>Descripción</th>
+          <th>Fecha Programada</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
         {embarcaciones.map((embarcacion) => (
           <tr key={embarcacion.id}>
-            {/* Muestra cada campo de la embarcación en una celda */}
             <td>{embarcacion.id}</td>
             <td>{embarcacion.nombre}</td>
             <td>{embarcacion.capacidad}</td>
-            <td>{embarcacion.descipcion}</td>
+            <td>{embarcacion.descripcion}</td>
+            <td>{embarcacion.fechaProgramada}</td>
             <td>
-              {/* Botones para editar y eliminar */}
-              <button onClick={() => onEdit(embarcacion)} style={{ marginRight: "10px" }}>
+              <button
+                onClick={() => onEdit(embarcacion)}
+                style={{ marginRight: "10px" }}
+              >
                 Editar
               </button>
               <button onClick={() => onDelete(embarcacion.id)}>Eliminar</button>
@@ -53,5 +53,4 @@ const EmbarcacionTable: React.FC<EmbarcacionTableProps> = ({
   );
 };
 
-// Exportamos el componente para su uso en otros archivos
 export default EmbarcacionTable;
