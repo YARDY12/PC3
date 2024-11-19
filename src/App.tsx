@@ -3,6 +3,7 @@ import axios from "axios";
 import { Embarcacion } from "./types";
 import EmbarcacionForm from "./components/EmbarcacionForm";
 import EmbarcacionTable from "./components/EmbarcacionTable";
+import "./App.css";
 
 const App: React.FC = () => {
   // Estado para almacenar la lista momentánea de embarcaciones
